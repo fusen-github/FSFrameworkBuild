@@ -6,7 +6,8 @@
 //
 
 #import "ViewController.h"
-#import <First/FSFirst.h>
+//#import <First/FSInterface.h>
+#import <First/First.h>
 
 @interface ViewController ()
 
@@ -18,7 +19,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [FSFirst printFirst];
+    [FSInterface test];
     
 }
 

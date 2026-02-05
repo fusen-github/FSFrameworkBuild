@@ -9,4 +9,8 @@
 
 @implementation FSBaidu
 
++ (void)test {
+    NSLog(@"我是百度");
+}
+
 @end

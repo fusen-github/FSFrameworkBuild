@@ -15,4 +15,4 @@ FOUNDATION_EXPORT const unsigned char FirstVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <First/PublicHeader.h>
 
-#import <First/FSFirst.h>
+#import <First/FSInterface.h>

@@ -11,4 +11,8 @@
 
 @implementation FSAli
 
++ (void)test {
+    NSLog(@"我是ali");
+}
+
 @end
