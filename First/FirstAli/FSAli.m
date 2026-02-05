@@ -13,6 +13,7 @@
 
 + (void)test {
     NSLog(@"我是ali");
+    [FSInner test];
 }
 
 @end

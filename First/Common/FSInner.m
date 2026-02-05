@@ -9,4 +9,8 @@
 
 @implementation FSInner
 
++ (void)test {
+    NSLog(@"%s", __func__);
+}
+
 @end

@@ -6,11 +6,14 @@
 //
 
 #import "FSBaidu.h"
+#import "FSInner.h"
+
 
 @implementation FSBaidu
 
 + (void)test {
     NSLog(@"我是百度");
+    [FSInner test];
 }
 
 @end

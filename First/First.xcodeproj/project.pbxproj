@@ -17,20 +17,16 @@
 		1C88A4B02F344CF900C1B0F6 /* FSInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C88A4A92F344CF900C1B0F6 /* FSInterface.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1C88A4B12F344D0300C1B0F6 /* FSInner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C88A4A62F344CEB00C1B0F6 /* FSInner.m */; };
 		1C88A4B22F344D0300C1B0F6 /* FSInner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C88A4A62F344CEB00C1B0F6 /* FSInner.m */; };
-		1C88A4BA2F344E7A00C1B0F6 /* First.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C88A4B42F344E7A00C1B0F6 /* First.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1C88A4E62F3468AE00C1B0F6 /* First.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C88A4B42F344E7A00C1B0F6 /* First.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1C88A4E72F3468AE00C1B0F6 /* First.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C88A4B42F344E7A00C1B0F6 /* First.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1C3237E72F0E571800D45767 /* First.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = First.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1C88A47D2F344B3B00C1B0F6 /* First.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = First.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1C88A48A2F344B6700C1B0F6 /* First.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = First.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C88A47D2F344B3B00C1B0F6 /* FirstBaidu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirstBaidu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C88A48A2F344B6700C1B0F6 /* FirstAli.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirstAli.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C88A4A52F344CEB00C1B0F6 /* FSInner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSInner.h; sourceTree = "<group>"; };
 		1C88A4A62F344CEB00C1B0F6 /* FSInner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSInner.m; sourceTree = "<group>"; };
 		1C88A4A92F344CF900C1B0F6 /* FSInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSInterface.h; sourceTree = "<group>"; };
 		1C88A4AA2F344CF900C1B0F6 /* FSInterface.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSInterface.m; sourceTree = "<group>"; };
-		1C88A4B42F344E7A00C1B0F6 /* First.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = First.h; sourceTree = "<group>"; };
 		1CBBE0E72F0F4BF100EE41E8 /* build_xcframework.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = build_xcframework.sh; path = ../build_xcframework.sh; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -40,7 +36,38 @@
 			membershipExceptions = (
 				BuiltSettingConfig.h,
 			);
+			publicHeaders = (
+				First.h,
+			);
 			target = 1C3237E62F0E571800D45767 /* First */;
+		};
+		1C88A5A52F349F9B00C1B0F6 /* Exceptions for "FirstAli" folder in "FirstAli" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			publicHeaders = (
+				FirstAli.h,
+			);
+			target = 1C88A4892F344B6700C1B0F6 /* FirstAli */;
+		};
+		1C88A5A62F349FAC00C1B0F6 /* Exceptions for "FirstBaidu" folder in "FirstBaidu" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			publicHeaders = (
+				FirstBaidu.h,
+			);
+			target = 1C88A47C2F344B3B00C1B0F6 /* FirstBaidu */;
+		};
+		1C88A5A72F34A00D00C1B0F6 /* Exceptions for "First" folder in "FirstBaidu" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				First.h,
+			);
+			target = 1C88A47C2F344B3B00C1B0F6 /* FirstBaidu */;
+		};
+		1C88A5A82F34A00D00C1B0F6 /* Exceptions for "First" folder in "FirstAli" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				First.h,
+			);
+			target = 1C88A4892F344B6700C1B0F6 /* FirstAli */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -49,17 +76,25 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				1C3237EC2F0E571800D45767 /* Exceptions for "First" folder in "First" target */,
+				1C88A5A72F34A00D00C1B0F6 /* Exceptions for "First" folder in "FirstBaidu" target */,
+				1C88A5A82F34A00D00C1B0F6 /* Exceptions for "First" folder in "FirstAli" target */,
 			);
 			path = First;
 			sourceTree = "<group>";
 		};
 		1C88A47E2F344B3B00C1B0F6 /* FirstBaidu */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				1C88A5A62F349FAC00C1B0F6 /* Exceptions for "FirstBaidu" folder in "FirstBaidu" target */,
+			);
 			path = FirstBaidu;
 			sourceTree = "<group>";
 		};
 		1C88A48B2F344B6700C1B0F6 /* FirstAli */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				1C88A5A52F349F9B00C1B0F6 /* Exceptions for "FirstAli" folder in "FirstAli" target */,
+			);
 			path = FirstAli;
 			sourceTree = "<group>";
 		};
@@ -107,8 +142,8 @@
 			isa = PBXGroup;
 			children = (
 				1C3237E72F0E571800D45767 /* First.framework */,
-				1C88A47D2F344B3B00C1B0F6 /* First.framework */,
-				1C88A48A2F344B6700C1B0F6 /* First.framework */,
+				1C88A47D2F344B3B00C1B0F6 /* FirstBaidu.framework */,
+				1C88A48A2F344B6700C1B0F6 /* FirstAli.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -123,7 +158,6 @@
 		1C88A49E2F344C4700C1B0F6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				1C88A4B42F344E7A00C1B0F6 /* First.h */,
 				1C88A4A52F344CEB00C1B0F6 /* FSInner.h */,
 				1C88A4A62F344CEB00C1B0F6 /* FSInner.m */,
 				1C88A4A92F344CF900C1B0F6 /* FSInterface.h */,
@@ -140,7 +174,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C88A4AE2F344CF900C1B0F6 /* FSInterface.h in Headers */,
-				1C88A4BA2F344E7A00C1B0F6 /* First.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,7 +182,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C88A4B02F344CF900C1B0F6 /* FSInterface.h in Headers */,
-				1C88A4E62F3468AE00C1B0F6 /* First.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,7 +190,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C88A4AB2F344CF900C1B0F6 /* FSInterface.h in Headers */,
-				1C88A4E72F3468AE00C1B0F6 /* First.h in Headers */,
 				1C88A4A72F344CEB00C1B0F6 /* FSInner.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -209,7 +240,7 @@
 			packageProductDependencies = (
 			);
 			productName = FirstBaidu;
-			productReference = 1C88A47D2F344B3B00C1B0F6 /* First.framework */;
+			productReference = 1C88A47D2F344B3B00C1B0F6 /* FirstBaidu.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		1C88A4892F344B6700C1B0F6 /* FirstAli */ = {
@@ -232,7 +263,7 @@
 			packageProductDependencies = (
 			);
 			productName = FirstAli;
-			productReference = 1C88A48A2F344B6700C1B0F6 /* First.framework */;
+			productReference = 1C88A48A2F344B6700C1B0F6 /* FirstAli.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -363,7 +394,7 @@
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				PRELINK_LIBS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fusen.app.First;
-				PRODUCT_NAME = First;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -560,7 +591,7 @@
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fusen.app.FirstBaidu;
-				PRODUCT_NAME = First;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -630,7 +661,7 @@
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fusen.app.FirstAli;
-				PRODUCT_NAME = First;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;

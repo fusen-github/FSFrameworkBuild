@@ -14,3 +14,6 @@ FOUNDATION_EXPORT double FirstAliVersionNumber;
 FOUNDATION_EXPORT const unsigned char FirstAliVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <FirstAli/PublicHeader.h>
+
+#import <FirstAli/FirstAli.h>
+#import <FirstAli/FSInterface.h>
