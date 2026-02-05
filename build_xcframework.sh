@@ -47,6 +47,7 @@ function archive_simulator {
         FRAMEWORK_SEARCH_PATHS="$ROOT_PATH/$SIMULATOR_PRODUCT_DIR" \
         GENERATE_PRELINK_OBJECT_FILE=YES \
         PRELINK_LIBS="${prelink_path}" \
+        GCC_PREPROCESSOR_DEFINITIONS="USE_IDFA BBB" \
         || exit 1
     
     # 拷贝framework
@@ -83,7 +84,8 @@ function archive_device {
         STRIP_INSTALLED_PRODUCT=NO \
         FRAMEWORK_SEARCH_PATHS="$ROOT_PATH/$SIMULATOR_PRODUCT_DIR" \
         GENERATE_PRELINK_OBJECT_FILE=YES \
-        PRELINK_LIBS="${prelink_path}" \
+        PRELINK_LIBS="\$(inherited) ${prelink_path}" \
+        GCC_PREPROCESSOR_DEFINITIONS="USE_IDFA BBB" \
         || exit 1
     
     # 拷贝framework

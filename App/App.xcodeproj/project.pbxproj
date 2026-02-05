@@ -6,13 +6,8 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		1CBBE1182F0F500C00EE41E8 /* AdScopeFoundation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CBBE1172F0F500C00EE41E8 /* AdScopeFoundation.xcframework */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXFileReference section */
 		1C3237C02F0E56D000D45767 /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1CBBE1172F0F500C00EE41E8 /* AdScopeFoundation.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = AdScopeFoundation.xcframework; path = ../Libs/AdScopeFoundation.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -41,7 +36,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CBBE1182F0F500C00EE41E8 /* AdScopeFoundation.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,7 +62,6 @@
 		1C32380F2F0E588900D45767 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1CBBE1172F0F500C00EE41E8 /* AdScopeFoundation.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
