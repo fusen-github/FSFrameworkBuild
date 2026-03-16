@@ -1,0 +1,140 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+#require 'fileutils'
+#include FileUtils
+
+
+target 'FSSDK' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for FSSDK
+  pod 'AFNetworking', :git => 'https://github.com/AFNetworking/AFNetworking.git', :tag => '4.0.1'
+
+end
+
+project 'FSSDK.xcodeproj'
+
+# 关键：修改 Pod 编译配置，让其源码归属于你的 Framework
+post_install do |installer|
+  
+  main_proj = Xcodeproj::Project.open('FSSDK.xcodeproj')
+    
+  # 1. 获取你的 Framework Target
+  main_proj_target = main_proj.targets.find { |t| t.name == 'FSSDK' }
+  pod_file_root = File.dirname(__FILE__)
+  group_name = 'AdLibs'
+  ad_libs = File.join(pod_file_root, group_name)
+  FileUtils.rm_rf(ad_libs)
+  FileUtils.mkdir_p(ad_libs)
+  
+  puts "main_proj_target = #{main_proj_target}"
+  
+  puts pod_file_root
+  # 2. 遍历所有 Pod Target，将其源码和编译产物合并到你的 Framework
+  installer.pods_project.targets.each do |pod_target|
+#    next if pod_target.name == 'FSSDK' # 跳过自身
+    next if pod_target.name != 'AFNetworking'
+#     puts "来了11  #{pod_target.name}"
+      pods_root = installer.sandbox.root
+      from_dir = File.join(pods_root, pod_target.name)
+      to_dir = File.join(ad_libs, pod_target.name)
+      FileUtils.cp_r from_dir, to_dir
+    end
+  
+  new_group = main_proj.main_group.groups.find { |g| g.name == group_name }
+  if new_group == nil
+    new_group = main_proj.main_group.new_group(group_name)
+  end
+  
+  Dir.glob(File.join(ad_libs, '**', '*')).each do |file_path|
+      next if File.directory?(file_path) # 跳过目录，只处理文件
+      # 获取相对路径用于在 Group 中重建目录结构
+      relative_path = Pathname.new(file_path).relative_path_from(ad_libs)
+      
+      # 获取文件所在子目录（如果有）
+      subdir = relative_path.dirname
+      subdir = nil if subdir.to_s == '.'
+      
+      # 确定文件应该放在哪个 Group 中
+      target_group = new_group
+      if subdir
+        # 如果文件在子文件夹中，在 Group 下创建对应的子 Group
+        subdir_parts = subdir.to_s.split(File::SEPARATOR)
+        subdir_parts.each do |part|
+          sub_group = target_group.groups.find { |g| g.name == part }
+          unless sub_group
+            sub_group = target_group.new_group(part)
+            puts "  📂 创建子 Group: #{part}"
+          end
+          target_group = sub_group
+        end
+      end
+
+      # 检查文件是否已存在
+      file_name = relative_path.basename.to_s
+      existing_file = target_group.files.find { |f| f.name == file_name }
+      
+      if existing_file
+        puts "  ⏭️ 文件已存在: #{relative_path}"
+        next
+      end
+
+      # 添加文件引用
+      file_ref = target_group.new_file(file_path)
+      puts "  ✅ 添加文件: #{relative_path}"
+
+      # 根据文件类型添加到对应的 Build Phase
+      case File.extname(file_path).downcase
+      when '.m', '.mm', '.c', '.cpp', '.swift'
+        # 源文件添加到编译阶段
+        unless main_proj_target.source_build_phase.files_references.include?(file_ref)
+          main_proj_target.source_build_phase.add_file_reference(file_ref)
+          puts "    📝 添加到 Sources Build Phase"
+        end
+#      when '.h', '.hpp', '.hh'
+        # 头文件通常不需要添加到 Build Phase，但可能需要设置 Public/Private
+        # 这里不做处理，因为 Xcode 会自动找到头文件
+#      when '.xib', '.storyboard', '.png', '.jpg', '.jpeg', '.gif', '.bundle', '.plist'
+#        # 资源文件添加到资源阶段
+#        unless target.resources_build_phase.files_references.include?(file_ref)
+#          target.resources_build_phase.add_file_reference(file_ref)
+#          puts "    🖼️ 添加到 Resources Build Phase"
+#        end
+      end
+    end
+
+  main_proj.save
+end
+
+
+
+def xxx
+  # 递归遍历文件夹下的所有指定类型文件
+    Dir.glob(File.join(ad_libs, '**', '*')).each do |file_path|
+      # 过滤文件类型
+  #    next unless INCLUDE_EXTENSIONS.include?(File.extname(file_path))
+      # 跳过隐藏文件/文件夹（如 .DS_Store）
+      next if File.basename(file_path).start_with?('.')
+
+      # ========== 步骤3：将文件添加到工程并关联到 Target ==========
+      # 1. 创建文件引用（添加到工程）
+      # 计算文件相对于工程的路径（关键：避免路径错误）
+      relative_path = Pathname.new(file_path).relative_path_from(Pathname.new(main_proj.path).dirname)
+      file_ref = main_proj.new_file(relative_path)
+
+      # 2. 将文件添加到 Target 的编译阶段（Sources Build Phase）
+      # .m/.mm/.c 添加到编译源文件阶段，.h 文件可选（Xcode 中.h 不参与编译但需关联）
+      if ['.m', '.mm', '.c'].include?(File.extname(file_path))
+        # 添加到编译源文件列表（参与编译）
+        main_proj_target.source_build_phase.add_file_reference(file_ref)
+      else
+        # .h 文件仅添加到工程，不加入编译阶段（Xcode 常规逻辑）
+        main_proj_target.headers_build_phase.add_file_reference(file_ref)
+      end
+
+      puts "✅ 添加文件到工程：#{relative_path}"
+    end
+end
+

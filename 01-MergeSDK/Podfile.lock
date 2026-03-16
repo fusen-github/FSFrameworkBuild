@@ -1,0 +1,36 @@
+PODS:
+  - AFNetworking (4.0.1):
+    - AFNetworking/NSURLSession (= 4.0.1)
+    - AFNetworking/Reachability (= 4.0.1)
+    - AFNetworking/Security (= 4.0.1)
+    - AFNetworking/Serialization (= 4.0.1)
+    - AFNetworking/UIKit (= 4.0.1)
+  - AFNetworking/NSURLSession (4.0.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (4.0.1)
+  - AFNetworking/Security (4.0.1)
+  - AFNetworking/Serialization (4.0.1)
+  - AFNetworking/UIKit (4.0.1):
+    - AFNetworking/NSURLSession
+
+DEPENDENCIES:
+  - AFNetworking (from `https://github.com/AFNetworking/AFNetworking.git`, tag `4.0.1`)
+
+EXTERNAL SOURCES:
+  AFNetworking:
+    :git: https://github.com/AFNetworking/AFNetworking.git
+    :tag: 4.0.1
+
+CHECKOUT OPTIONS:
+  AFNetworking:
+    :git: https://github.com/AFNetworking/AFNetworking.git
+    :tag: 4.0.1
+
+SPEC CHECKSUMS:
+  AFNetworking: 4d353c3ca66d300f1be66e439e412f8609358935
+
+PODFILE CHECKSUM: f6f14f3012594dcde6ff18a26b584157f4653549
+
+COCOAPODS: 1.16.2
